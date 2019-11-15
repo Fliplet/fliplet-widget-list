@@ -5,6 +5,9 @@ var data = Fliplet.Widget.getData() || {
 };
 var linkPromises = [];
 
+var page = Fliplet.Widget.getPage();
+var omitPages = page ? [page.id] : [];
+
 data.items = data.items || [];
 
 var accordionCollapsed = false;
@@ -198,6 +201,7 @@ function initLinkProvider(item) {
 
   item.linkAction = item.linkAction || {};
   item.linkAction.provId = item.id;
+  item.linkAction.omitPages = omitPages;
 
   var linkActionProvider = Fliplet.Widget.open('com.fliplet.link', {
     // If provided, the iframe will be appended here,
