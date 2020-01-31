@@ -270,7 +270,7 @@ function addListItem(data) {
 }
 
 function checkPanelLength() {
-  if ($('.panel').length) {
+  if (data.items.length) {
     $('#list-items').removeClass('list-items-empty');
   } else {
     $('#list-items').addClass('list-items-empty');
