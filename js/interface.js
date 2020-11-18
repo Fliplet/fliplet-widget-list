@@ -5,6 +5,9 @@ var data = Fliplet.Widget.getData() || {
 };
 var linkPromises = [];
 
+var page = Fliplet.Widget.getPage();
+var omitPages = page ? [page.id] : [];
+
 data.items = data.items || [];
 
 var accordionCollapsed = false;
@@ -169,10 +172,6 @@ $(".tab-content")
     enableSwipeSave();
   });
 
-$('#help_tip').on('click', function() {
-  alert("During beta, please use live chat and let us know what you need help with.");
-});
-
 var contentHeight = $('body > .form-horizontal').outerHeight();
 var tabPaneTopPadding = 78;
 
@@ -202,6 +201,7 @@ function initLinkProvider(item) {
 
   item.linkAction = item.linkAction || {};
   item.linkAction.provId = item.id;
+  item.linkAction.omitPages = omitPages;
 
   var linkActionProvider = Fliplet.Widget.open('com.fliplet.link', {
     // If provided, the iframe will be appended here,
@@ -260,6 +260,7 @@ function addListItem(data) {
   var $newPanel = $(templates.panel(data));
   $accordionContainer.append($newPanel);
 
+  $newPanel.find('.form-control.list-item-desc').attr('placeholder', 'Enter description');
   $newPanel.find('.form-control:eq(0)').select();
   $('form.form-horizontal').stop().animate({
     scrollTop: $('.tab-content').height()
@@ -269,7 +270,7 @@ function addListItem(data) {
 }
 
 function checkPanelLength() {
-  if ($('.panel').length) {
+  if (data.items.length) {
     $('#list-items').removeClass('list-items-empty');
   } else {
     $('#list-items').addClass('list-items-empty');
