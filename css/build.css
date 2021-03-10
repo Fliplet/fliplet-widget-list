@@ -46,6 +46,10 @@
   cursor: pointer;
 }
 
+.list.list-default ul > li .list-icon {
+  display: none;
+}
+
 .list.list-default ul > li.linked .list-icon {
   display: flex;
   align-items: center;
