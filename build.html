@@ -3,14 +3,14 @@
   {{#if swipeToSave}}
   <div class="filter-wrapper">
     <ul class="list-save-filter">
-      <li class="filter-{{id}} active" data-filter="all">All</li>
+      <li class="filter-{{id}} active" data-filter="all" data-translate="widgets.list.noImages.filters.all">All</li>
       <li class="filter-{{id}}" data-filter=".saved">{{swipeToSaveLabel}}</li>
     </ul>
   </div>
   <div class="label-instruction">
-    <small class="label label-all">Swipe Right to add to <strong>{{swipeToSaveLabel}}</strong> &rarr;</small>
-    <small class="label label-my">&larr; Swipe Left to remove from <strong>{{swipeToSaveLabel}}</strong></small>
-    <small class="label label-empty">Nothing is found in <strong>{{swipeToSaveLabel}}</strong>. Swipe Right (&rarr;) on any list item to save it in <strong>{{swipeToSaveLabel}}</strong></small>
+    <small class="label label-all" data-translate="[html]widgets.list.noImages.instructions.swipeRight">Swipe Right to add to <strong>{{swipeToSaveLabel}}</strong> &rarr;</small>
+    <small class="label label-my" data-translate="[html]widgets.list.noImages.instructions.swipeLeft">&larr; Swipe Left to remove from <strong>{{swipeToSaveLabel}}</strong></small>
+    <small class="label label-empty" data-translate="[html]widgets.list.noImages.nothingFound">Nothing is found in <strong>{{swipeToSaveLabel}}</strong>. Swipe Right (&rarr;) on any list item to save it in <strong>{{swipeToSaveLabel}}</strong></small>
   </div>
   {{/if}}
   <ul class="list-holder {{#if swipeToSave}}list-swipe{{/if}}">

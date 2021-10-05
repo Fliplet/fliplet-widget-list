@@ -1,5 +1,5 @@
-(function () {
-  $('.linked[data-list-item-id]').click(function (event) {
+(function() {
+  $('.linked[data-list-item-id]').click(function(event) {
     event.preventDefault();
 
     var $container = $(this);
@@ -19,8 +19,10 @@
   });
 })();
 
-Fliplet.Widget.instance('list', function (data) {
+Fliplet.Widget.instance('list', function(data) {
   var $container = $(this);
+
+  $container.translate({ swipeToSaveLabel: data.swipeToSaveLabel || 'My list' });
 
   if (data.swipeToSave) {
     window.ui = window.ui || {};
