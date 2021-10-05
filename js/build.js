@@ -21,6 +21,7 @@
 
 Fliplet.Widget.instance('list', function (data) {
   var $container = $(this);
+  $container.translate();
 
   if (data.swipeToSave) {
     window.ui = window.ui || {};

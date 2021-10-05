@@ -1,0 +1,14 @@
+{
+  "widgets": {
+    "list": {
+      "noImages": {
+        "all": "All",
+        "instructions": {
+          "swipeRight": "Swipe Right to add to <strong>{{swipeToSaveLabel}}</strong> &rarr;",
+          "swipeLeft": "&larr; Swipe Left to remove from <strong>{{swipeToSaveLabel}}</strong>",
+          "nothingFound": "Nothing is found in <strong>{{swipeToSaveLabel}}</strong>. Swipe Right (&rarr;) on any list item to save it in <strong>{{swipeToSaveLabel}}</strong>"
+        }
+      }
+    }
+  }
+}
