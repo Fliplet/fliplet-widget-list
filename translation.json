@@ -2,11 +2,13 @@
   "widgets": {
     "list": {
       "noImages": {
-        "all": "All",
+        "filters": {
+          "all": "All"
+        },
+        "nothingFound": "Nothing is found in <strong>{{swipeToSaveLabel}}</strong>. Swipe Right (&rarr;) on any list item to save it in <strong>{{swipeToSaveLabel}}</strong>",
         "instructions": {
-          "swipeRight": "Swipe Right to add to <strong>{{swipeToSaveLabel}}</strong> &rarr;",
-          "swipeLeft": "&larr; Swipe Left to remove from <strong>{{swipeToSaveLabel}}</strong>",
-          "nothingFound": "Nothing is found in <strong>{{swipeToSaveLabel}}</strong>. Swipe Right (&rarr;) on any list item to save it in <strong>{{swipeToSaveLabel}}</strong>"
+          "swipeRight": "1 Swipe Right to add to <strong>{{swipeToSaveLabel}}</strong> &rarr;",
+          "swipeLeft": "&larr; Swipe Left to remove from <strong>{{swipeToSaveLabel}}</strong>"
         }
       }
     }
