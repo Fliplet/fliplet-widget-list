@@ -22,12 +22,12 @@
 Fliplet.Widget.instance('list', function(data) {
   var $container = $(this);
 
-  $container.translate({ swipeToSaveLabel: data.swipeToSaveLabel || T('widgets.list.noImages.listName') });
+  $container.translate({ swipeToSaveLabel: data.swipeToSaveLabel || T('widgets.list.noImages.defaultListName') });
 
   if (data.swipeToSave) {
     window.ui = window.ui || {};
     window.ui['swipeSavedList' + $container.attr('data-list-uuid')] = new SwipeSaveList(this, {
-      savedListLabel: data.swipeToSaveLabel || T('widgets.list.noImages.listName')
+      savedListLabel: data.swipeToSaveLabel || T('widgets.list.noImages.defaultListName')
     });
   }
 });
