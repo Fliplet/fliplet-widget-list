@@ -22,7 +22,9 @@
 Fliplet.Widget.instance('list', function(data) {
   var $container = $(this);
 
-  $container.translate({ swipeToSaveLabel: data.swipeToSaveLabel || T('widgets.list.noImages.defaultListName') });
+  var swipeToSaveLabel = data.swipeToSaveLabel || T('widgets.list.largeThumbs.defaultListName');
+
+  $container.translate({ swipeToSaveLabel: swipeToSaveLabel });
 
   if (data.swipeToSave) {
     window.ui = window.ui || {};
