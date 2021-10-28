@@ -29,7 +29,7 @@ Fliplet.Widget.instance('list', function(data) {
   if (data.swipeToSave) {
     window.ui = window.ui || {};
     window.ui['swipeSavedList' + $container.attr('data-list-uuid')] = new SwipeSaveList(this, {
-      savedListLabel: data.swipeToSaveLabel || T('widgets.list.noImages.defaultListName')
+      savedListLabel: swipeToSaveLabel
     });
   }
 });
