@@ -1,4 +1,6 @@
-(function () {
+Fliplet.Widget.instance('list', function (data) {
+  var $container = $(this);
+
   $('.linked[data-list-item-id]').click(function (event) {
     event.preventDefault();
 
@@ -17,10 +19,6 @@
       Fliplet.Navigate.to(itemData.linkAction);
     }
   });
-})();
-
-Fliplet.Widget.instance('list', function (data) {
-  var $container = $(this);
 
   if (data.swipeToSave) {
     window.ui = window.ui || {};
