@@ -1,0 +1,21 @@
+{
+  "name": "fliplet-widget-simple-list",
+  "version": "1.0.1",
+  "description": "Simple list widget code",
+  "scripts": {
+    "eslint:github-action": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fliplet/fliplet-widget-list.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Fliplet/fliplet-widget-list/issues"
+  },
+  "homepage": "https://github.com/Fliplet/fliplet-widget-list#readme",
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.32.0",
+    "eslint-config-fliplet": "^1.0.8"
+  }
+}
