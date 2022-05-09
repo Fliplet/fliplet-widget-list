@@ -146,7 +146,7 @@ $(".tab-content")
       return;
     }
   })
-  .on('show.bs.collapse', '.panel-collapse', function(event) {
+  .on('show.bs.collapse', '.panel-collapse', function() {
     if (dragging) {
       return;
     }
