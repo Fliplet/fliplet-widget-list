@@ -143,6 +143,7 @@ $(".tab-content")
   .on('click', function(event) {
     if (dragging) {
       event.stopPropagation();
+
       return;
     }
   })
