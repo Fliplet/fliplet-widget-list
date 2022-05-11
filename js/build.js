@@ -1,7 +1,7 @@
-Fliplet.Widget.instance('list', function (data) {
+Fliplet.Widget.instance('list', function(data) {
   var $container = $(this);
 
-  $container.find('.linked[data-list-item-id]').click(function (event) {
+  $container.find('.linked[data-list-item-id]').click(function(event) {
     event.preventDefault();
 
     var $container = $(this);
