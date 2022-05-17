@@ -144,8 +144,6 @@ $('.tab-content')
   .on('click', function(event) {
     if (dragging) {
       event.stopPropagation();
-
-      return;
     }
   })
   .on('show.bs.collapse', '.panel-collapse', function() {
