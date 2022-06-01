@@ -22,8 +22,6 @@ Fliplet.Widget.instance('list', function(data) {
 
   var swipeToSaveLabel = data.swipeToSaveLabel || T('widgets.list.noImages.defaultListName');
 
-  $container.translate({ swipeToSaveLabel: swipeToSaveLabel });
-
   if (data.swipeToSave) {
     window.ui = window.ui || {};
     window.ui['swipeSavedList' + $container.attr('data-list-uuid')] = new SwipeSaveList(this, {
@@ -33,5 +31,6 @@ Fliplet.Widget.instance('list', function(data) {
 
   Fliplet().then(function() {
     $container.translate();
+    $container.translate({ swipeToSaveLabel: swipeToSaveLabel });
   });
 });
