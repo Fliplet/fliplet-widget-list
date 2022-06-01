@@ -1,6 +1,12 @@
 Fliplet.Widget.instance('list', function(data) {
   var $container = $(this);
 
+  var swipeToSaveLabel = data.swipeToSaveLabel || T('widgets.list.noImages.defaultListName');
+
+  Fliplet().then(function() {
+    $container.translate({ swipeToSaveLabel: swipeToSaveLabel });
+  });
+
   $container.find('.linked[data-list-item-id]').click(function(event) {
     event.preventDefault();
 
@@ -19,13 +25,6 @@ Fliplet.Widget.instance('list', function(data) {
       Fliplet.Navigate.to(itemData.linkAction);
     }
   });
-
-  Fliplet().then(function() {
-    $container.translate();
-    $container.translate({ swipeToSaveLabel: swipeToSaveLabel });
-  });
-
-  var swipeToSaveLabel = data.swipeToSaveLabel || T('widgets.list.noImages.defaultListName');
 
   if (data.swipeToSave) {
     window.ui = window.ui || {};
