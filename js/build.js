@@ -1,8 +1,6 @@
 Fliplet.Widget.instance('list', function(data) {
   var $container = $(this);
 
-  $container.translate();
-
   $container.find('.linked[data-list-item-id]').click(function(event) {
     event.preventDefault();
 
@@ -32,4 +30,8 @@ Fliplet.Widget.instance('list', function(data) {
       savedListLabel: swipeToSaveLabel
     });
   }
+
+  Fliplet().then(function() {
+    $container.translate();
+  });
 });
