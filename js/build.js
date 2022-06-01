@@ -20,6 +20,11 @@ Fliplet.Widget.instance('list', function(data) {
     }
   });
 
+  Fliplet().then(function() {
+    $container.translate();
+    $container.translate({ swipeToSaveLabel: swipeToSaveLabel });
+  });
+
   var swipeToSaveLabel = data.swipeToSaveLabel || T('widgets.list.noImages.defaultListName');
 
   if (data.swipeToSave) {
@@ -28,9 +33,4 @@ Fliplet.Widget.instance('list', function(data) {
       savedListLabel: swipeToSaveLabel
     });
   }
-
-  Fliplet().then(function() {
-    $container.translate();
-    $container.translate({ swipeToSaveLabel: swipeToSaveLabel });
-  });
 });
