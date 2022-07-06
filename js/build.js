@@ -21,9 +21,9 @@ Fliplet.Widget.instance('list', function(data) {
     }
   });
 
-  var swipeToSaveLabel = data.swipeToSaveLabel || T('widgets.list.noImages.defaultListName');
-
   Fliplet().then(function() {
+    var swipeToSaveLabel = data.swipeToSaveLabel || T('widgets.list.noImages.defaultListName');
+
     $container.translate({ swipeToSaveLabel: swipeToSaveLabel });
 
     if (data.swipeToSave) {
