@@ -1,24 +1,27 @@
-$('.linked[data-list-item-id]').click(function (event) {
-  event.preventDefault();
+Fliplet.Widget.instance('list', function(data) {
+  var $container = $(this);
+  var _this = this;
 
-  if ($(this).parents('.list-swipe.swiping').length) {
-    return;
-  }
+  $container.find('.linked[data-list-item-id]').click(function (event) {
+    event.preventDefault();
 
-  var data = Fliplet.Widget.getData($(this).parents('[data-list-id]').attr('data-list-id'));
-  var itemData = _.find(data.items,{id: $(this).attr('data-list-item-id')});
+    if ($(this).parents('.list-swipe.swiping').length) {
+      return;
+    }
 
-  if(!_.isUndefined(itemData) && (!_.isUndefined(itemData.linkAction) && !_.isEmpty(itemData.linkAction))) {
-    Fliplet.Navigate.to(itemData.linkAction);
-  }
-});
+    var itemData = _.find(data.items,{ id: $(this).attr('data-list-item-id') });
 
-$('[data-list-id]').each(function(){
-  var data = Fliplet.Widget.getData( $(this).attr('data-list-id') );
-  if (data.swipeToSave) {
-    window.ui = window.ui || {};
-    window.ui['swipeSavedList' + $(this).attr('data-list-uuid')] = new SwipeSaveList(this, {
-      savedListLabel: data.swipeToSaveLabel || 'My list'
-    });
-  }
+    if(!_.isUndefined(itemData) && (!_.isUndefined(itemData.linkAction) && !_.isEmpty(itemData.linkAction))) {
+      Fliplet.Navigate.to(itemData.linkAction);
+    }
+  });
+
+  Fliplet().then(function() {
+    if (data.swipeToSave) {
+      window.ui = window.ui || {};
+      window.ui['swipeSavedList' + $container.attr('data-list-uuid')] = new SwipeSaveList(_this, {
+        savedListLabel: data.swipeToSaveLabel || 'My list'
+      });
+    }
+  });
 });
