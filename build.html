@@ -15,7 +15,7 @@
   {{/if}}
   <ul class="list-holder {{#if swipeToSave}}list-swipe{{/if}}">
     {{#each items}}
-    <li {{#if linkAction}}class="linked" {{/if}} data-list-item-id="{{id}}">
+    <li {{#if linkAction}}class="linked" tabindex="0" {{/if}} data-list-item-id="{{id}}">
       <div class="list-desc">
         <p class="list-title">{{title}}</p>
         {{#if description}}
