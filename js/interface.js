@@ -17,7 +17,7 @@ var templates = {
   panel: template('panel')
 };
 
-var debounceSave = _.debounce(save, 500);
+var debounceSave = FlipletListUtils.debounce(save, 500);
 
 // Indicate dragging state
 var dragging = false;
@@ -40,7 +40,7 @@ setTimeout(function() {
       dragging = true;
 
       var itemId = $(ui.item).data('id');
-      var itemProvider = _.find(linkPromises, function(provider) {
+      var itemProvider = FlipletListUtils.find(linkPromises, function(provider) {
         return provider.id === itemId;
       });
 
@@ -48,7 +48,7 @@ setTimeout(function() {
 
       // removes provider
       itemProvider = null;
-      _.remove(linkPromises, {
+      FlipletListUtils.remove(linkPromises, {
         id: itemId
       });
 
@@ -57,7 +57,7 @@ setTimeout(function() {
     },
     stop: function(event, ui) {
       var itemId = $(ui.item).data('id');
-      var movedItem = _.find(data.items, function(item) {
+      var movedItem = FlipletListUtils.find(data.items, function(item) {
         return item.id === itemId;
       });
 
@@ -69,7 +69,7 @@ setTimeout(function() {
         attribute: 'data-id'
       });
 
-      data.items = _.sortBy(data.items, function(item) {
+      data.items = FlipletListUtils.sortBy(data.items, function(item) {
         return sortedIds.indexOf(item.id);
       });
 
@@ -90,10 +90,10 @@ $('.tab-content')
     var $item = $(this).closest('[data-id], .panel');
     var id = $item.data('id');
 
-    _.remove(data.items, {
+    FlipletListUtils.remove(data.items, {
       id: id
     });
-    _.remove(linkPromises, {
+    FlipletListUtils.remove(linkPromises, {
       id: id
     });
 
@@ -153,10 +153,10 @@ $('.tab-content')
 
     // Get item ID / Get provider / Get item
     var itemID = $(this).parents('.panel').data('id');
-    var itemProvider = _.find(linkPromises, function(provider) {
+    var itemProvider = FlipletListUtils.find(linkPromises, function(provider) {
       return provider.id === itemID;
     });
-    var item = _.find(data.items, function(item) {
+    var item = FlipletListUtils.find(data.items, function(item) {
       return item.id === itemID;
     });
 
@@ -289,7 +289,7 @@ Fliplet.Widget.onSaveRequest(function() {
 });
 
 function save(notifyComplete, dragStop) {
-  _.forEach(data.items, function(item) {
+  FlipletListUtils.forEach(data.items, function(item) {
     item.description = $('#list-item-desc-' + item.id).val();
     item.title = $('#list-item-title-' + item.id).val();
   });
