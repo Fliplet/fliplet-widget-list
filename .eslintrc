@@ -2,6 +2,7 @@
   "extends": "fliplet",
   "globals": {
     "SwipeSaveList": "readonly",
-    "ui": "readonly"
+    "ui": "readonly",
+    "FlipletListUtils": "readonly"
   }
 }

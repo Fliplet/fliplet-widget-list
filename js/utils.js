@@ -7,11 +7,13 @@
  */
 function debounce(func, wait) {
   let timeout;
+
   return function executedFunction(...args) {
     const later = () => {
       clearTimeout(timeout);
       func.apply(this, args);
     };
+
     clearTimeout(timeout);
     timeout = setTimeout(later, wait);
   };
@@ -21,11 +23,13 @@ function debounce(func, wait) {
  * Iterates over elements of collection and invokes iteratee for each element.
  * @param {Array} collection - The collection to iterate over
  * @param {Function} iteratee - The function invoked per iteration
+ * @returns {void}
  */
 function forEach(collection, iteratee) {
   if (!Array.isArray(collection)) {
     return;
   }
+
   for (let i = 0; i < collection.length; i++) {
     iteratee(collection[i], i, collection);
   }
@@ -45,19 +49,21 @@ function find(collection, predicate) {
   const predicateFunc = typeof predicate === 'function'
     ? predicate
     : (item) => {
-        for (const key in predicate) {
-          if (item[key] !== predicate[key]) {
-            return false;
-          }
+      for (const key in predicate) {
+        if (item[key] !== predicate[key]) {
+          return false;
         }
-        return true;
-      };
+      }
+
+      return true;
+    };
 
   for (let i = 0; i < collection.length; i++) {
     if (predicateFunc(collection[i], i, collection)) {
       return collection[i];
     }
   }
+
   return undefined;
 }
 
@@ -75,20 +81,23 @@ function remove(array, predicate) {
   const predicateFunc = typeof predicate === 'function'
     ? predicate
     : (item) => {
-        for (const key in predicate) {
-          if (item[key] !== predicate[key]) {
-            return false;
-          }
+      for (const key in predicate) {
+        if (item[key] !== predicate[key]) {
+          return false;
         }
-        return true;
-      };
+      }
+
+      return true;
+    };
 
   const removed = [];
+
   for (let i = array.length - 1; i >= 0; i--) {
     if (predicateFunc(array[i], i, array)) {
       removed.unshift(array.splice(i, 1)[0]);
     }
   }
+
   return removed;
 }
 
@@ -110,6 +119,7 @@ function sortBy(collection, iteratee) {
 
     if (aVal < bVal) return -1;
     if (aVal > bVal) return 1;
+
     return 0;
   });
 }

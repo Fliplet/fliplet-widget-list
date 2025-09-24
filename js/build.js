@@ -14,16 +14,17 @@ Fliplet.Widget.instance('list-1-0-1', function(data) {
     const itemId = listItem.getAttribute('data-list-item-id');
     const itemData = data.items.find(item => item.id === itemId);
 
-    if (itemData?.linkAction) {
+    if (itemData && itemData.linkAction) {
       Fliplet.Navigate.to(itemData.linkAction);
     }
   };
 
   const linkedItems = $container[0].querySelectorAll('.linked[data-list-item-id]');
+
   linkedItems.forEach(item => {
     item.addEventListener('click', handleItemClick);
     item.addEventListener('keydown', (event) => {
-      if (event.key === 'Enter' || event.key === ' ') { 
+      if (event.key === 'Enter' || event.key === ' ') {
         handleItemClick(event);
       }
     });

@@ -40,14 +40,14 @@ setTimeout(function() {
       dragging = true;
 
       var itemId = $(ui.item).data('id');
-      var itemProvider = FlipletListUtils.find(linkPromises, function(provider) {
+
+      FlipletListUtils.find(linkPromises, function(provider) {
         return provider.id === itemId;
       });
 
       save();
 
       // removes provider
-      itemProvider = null;
       FlipletListUtils.remove(linkPromises, {
         id: itemId
       });
@@ -293,10 +293,10 @@ function save(notifyComplete, dragStop) {
     item.description = $('#list-item-desc-' + item.id).val();
     item.title = $('#list-item-title-' + item.id).val();
   });
-  data.swipeToSaveLabel =
-    (data.swipeToSave && $('[name="saved_list_label"]').val().length) ?
-      $('[name="saved_list_label"]').val() :
-      'My List';
+  data.swipeToSaveLabel
+    = (data.swipeToSave && $('[name="saved_list_label"]').val().length)
+      ? $('[name="saved_list_label"]').val()
+      : 'My List';
 
   // forward save request to all providers
   linkPromises.forEach(function(promise) {
