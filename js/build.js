@@ -2,7 +2,7 @@ Fliplet.Widget.instance('list-1-0-1', function(data) {
   var $container = $(this);
   var _this = this;
 
-  const handleItemClick = (event) => {
+  const handleItemClick = async(event) => {
     event.preventDefault();
 
     const listItem = event.currentTarget;
@@ -15,7 +15,15 @@ Fliplet.Widget.instance('list-1-0-1', function(data) {
     const itemData = data.items.find(item => item.id === itemId);
 
     if (itemData && itemData.linkAction) {
-      Fliplet.Navigate.to(itemData.linkAction);
+      const action = itemData.linkAction || {};
+
+      try {
+        action.dynamicContext = await Fliplet.Widget.getDynamicContext($(this));
+      } catch (e) {
+        action.dynamicContext = {};
+      }
+
+      Fliplet.Navigate.to(action);
     }
   };
 
